@@ -3,18 +3,136 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Tienda</title>
+        <title>ShopFOOT</title>
+        <link rel="stylesheet"  href="./css/style.css">
     </head>
     <body>
         <header>
-            
+            <section class="barra-principal">
+                <div>
+                    <h1 class="h1">Tienda</h1>
+                </div>
+                <div>
+                    <i class="fa-solid fa-bag-shopping carritoIcono"></i>
+                </div>
+            </section>
+            <section class="carrito">
+                <h2 class="tuCarrito">Tu carrito</h2>
+                <div class="contendorProductos">
+                    <div class="cart-box">
+                        <img src="./assets/imagenes/zapatillaUno.jpg" alt="" class="img-cart">
+                        <div class="ctendor-cart">
+                            <p class="carritoProducto"> ear</p>
+                            <p class="precioCarrito">$26</p>
+                            <input type="number" value="1" class="cantidad">
+                        </div>
+
+
+                    </div>
+                </div>
+                <div class="total">
+                    <div>
+                        <p class="tituloTotal">Total</p>
+                        <p class="precioTotal">$0</p>
+                    </div>
+                </div>
+                <button class="btnComprar">comprar</button>
+
+                <i class="fa-solid fa-xmark cierre" id="cerrarCarito"></i>
+            </section>
         </header>
         <main>
-
+            <section class="ctenedor-productos">
+                <article class="ctendor-articulo">
+                    <div>
+                        <img src="./assets/imagenes/zapatillaUno.jpg" alt="" class="img-zapatilla">
+                    </div>
+                    <div>
+                        <h2 class="tituloArticulo">Zapatillas Adidas</h2>
+                    </div>
+                    <div>
+                        <p class="precio">$30000</p>
+                    </div>
+                    <div>
+                        <button class="añadirCarrito" data-indice="0">añadir al carrito</button>
+                    </div>
+                </article>
+                <article class="ctendor-articulo">
+                    <div>
+                        <img src="./assets/imagenes/zapatillaDos.jpg" alt="" class="img-zapatilla">
+                    </div>
+                    <div>
+                        <h2 class="tituloArticulo">Zapatillas Nike</h2>
+                    </div>
+                    <div>
+                        <p class="precio">$20000</p>
+                    </div>
+                    <div>
+                        <button class="añadirCarrito" data-indice="1">añadir al carrito</button>
+                    </div>
+                </article>
+                <article class="ctendor-articulo">
+                    <div>
+                        <img src="./assets/imagenes/zapatillaTres.jpg" alt="" class="img-zapatilla">
+                    </div>
+                    <div>
+                        <h2 class="tituloArticulo">Zapatillas Puma</h2>
+                    </div>
+                    <div>
+                        <p class="precio">$54030</p>
+                    </div>
+                    <div>
+                        <button class="añadirCarrito" data-indice="2">añadir al carrito</button>
+                    </div>
+                </article>
+                <article class="ctendor-articulo">
+                    <div>
+                        <img src="./assets/imagenes/zapatillaCuatro.jpg" alt="" class="img-zapatilla">
+                    </div>
+                    <div>
+                        <h2 class="tituloArticulo">Zapatillas Creativas</h2>
+                    </div>
+                    <div>
+                        <p class="precio">$23456</p>
+                    </div>
+                    <div>
+                        <button class="añadirCarrito" data-indice="3">añadir al carrito</button>
+                    </div>
+                </article>
+                <article class="ctendor-articulo">
+                    <div>
+                        <img src="./assets/imagenes/zapatillaCinco.jpeg" alt="" class="img-zapatilla">
+                    </div>
+                    <div>
+                        <h2 class="tituloArticulo">Zapatillas Malala</h2>
+                    </div>
+                    <div>
+                        <p class="precio">$64000</p>
+                    </div>
+                    <div>
+                        <button class="añadirCarrito" data-indice="4">añadir al carrito</button>
+                    </div>
+                </article>
+                <article class="ctendor-articulo">
+                    <div>
+                        <img src="./assets/imagenes/zapatillaSeis.jpg" alt="" class="img-zapatilla">
+                    </div>
+                    <div>
+                        <h2 class="tituloArticulo">Zapatillas Multicolor</h2>
+                    </div>
+                    <div>
+                        <p class="precio">$10000</p>
+                    </div>
+                    <div>
+                        <button class="añadirCarrito" data-indice="5">añadir al carrito</button>
+                    </div>
+                </article>
+            </section>
         </main>
         <footer>
 
         </footer>
+        <script src="https://kit.fontawesome.com/51c4455d4f.js" crossorigin="anonymous"></script>
         <script src="./script.js"></script>
     </body>
 </html>
