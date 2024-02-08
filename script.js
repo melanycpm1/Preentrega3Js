@@ -12,7 +12,6 @@ let precioTotal = document.querySelector(".precioTotal");
 
 let btncomprar = document.querySelector(".btnComprar");
 
-let div = document.createElement("div");
 
 let ctendorTotal = document.querySelector(".total");
 
@@ -21,6 +20,8 @@ function vaciarCarrito() {
 }
 
 function agregarProducto(productoElegido) {
+    div = document.createElement("div");
+
     div.classList.add("cart-box");
     contenedorProducto.appendChild(div)
 
@@ -49,7 +50,14 @@ function agregarProducto(productoElegido) {
     })
 }
 
-
+function remover() {
+    if (contenedorProducto) {
+        while (contenedorProducto.firstChild) {
+            contenedorProducto.removeChild(contenedorProducto.firstChild);
+        }
+    }
+}
+//revisar esto
 document.addEventListener("DOMContentLoaded", function () {
     vaciarCarrito();
 });
@@ -72,7 +80,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-let productosZapatillas = [
+const productosZapatillas = [
     {
         src: "./assets/imagenes/zapatillaUno.jpg",
         nombre: "zapatillas adidas",
@@ -114,6 +122,13 @@ console.log(parse)
 
 btnAñadirCarrito.forEach(boton => {
     boton.addEventListener("click", function () {
+        Toastify({
+            text: "Se añadio al carrito",
+            offset: {
+                x: 50, 
+                y: 10 
+            },
+        }).showToast();
         let indice = parseInt(boton.dataset.indice, 6);;
         agregarProducto(productosZapatillas[indice]);
         let acomulardor = compre.reduce((prev, valor) => {
@@ -123,14 +138,35 @@ btnAñadirCarrito.forEach(boton => {
     })
 });
 
-
 btncomprar.addEventListener("click", function () {
-    let tituloCarrito = document.querySelector(".tuCarrito");
-    tituloCarrito.style.display = "none";
-    div.style.display = "none"
-    ctendorTotal.style.display = "none"
-    btncomprar.style.display = "none"
-    let NuevoTexto = document.createElement("p");
-    todoElCarrito.appendChild(NuevoTexto)
-    NuevoTexto.textContent = "Gracias por comprar con nosotros"
-})
+    remover();
+
+    if (compre.length >= 1) {
+        Swal.fire({
+            position: "center",
+            icon: "success",
+            title: "Compra realizada",
+            showConfirmButton: false,
+            timer: 2500
+        }).then(() => {
+            vaciarCarrito();
+            precioTotal.textContent = "$0"; 
+            compre = []; 
+        });
+    } else {
+        Toastify({
+            text: "Compra no realizada, agrega productos",
+            duration: 3000,
+            destination: "https://github.com/apvarun/toastify-js",
+            newWindow: true,
+            close: true,
+            gravity: "top",
+            position: "left",
+            stopOnFocus: true, 
+            style: {
+                background: "linear-gradient(to right, #00b09b, #96c93d)",
+            },
+            onClick: function(){}
+        }).showToast();
+    }
+});
